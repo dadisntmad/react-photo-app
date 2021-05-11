@@ -1,0 +1,82 @@
+.form {
+  position: relative;
+  width: 500px;
+  margin: 0 0 7px 24px;
+
+  .search__button {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 8px;
+    cursor: pointer;
+
+    svg {
+      fill: darken(#eeeeee, 35%);
+      transition: .3s all;
+
+      &:hover {
+        fill: #141414;
+      }
+    }
+  }
+
+  .cancel__button {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
+
+    svg {
+      fill: darken(#eeeeee, 35%);
+      transition: .3s all;
+
+      &:hover {
+        fill: #141414;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      padding: 12px 38px;
+      border: none;
+      border-radius: 7px;
+      font-size: 11px;
+      background: #EEEEEE;
+      transition: .3s all;
+
+      &:hover {
+        box-shadow: 0 0 0 1px darken(#eeeeee, 10%);
+      }
+
+      &:focus {
+        background: none;
+        box-shadow: 0 0 0 1px darken(#eeeeee, 15%);
+      }
+    }
+  }
+}
+
+// MEDIA
+
+@media screen and (max-width: 655px) {
+  .form {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .form {
+    width: 205px;
+    margin: 0 0 7px 10px;
+
+    input {
+      font-size: 9px;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.modal {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000052;
+}
+
+.modal__container {
+  z-index: 10;
+  position: relative;
+  width: 80vw;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px #302e2e12;
+  background-color: #ffffff;
+  @include flex(column, flex-start, center);
+
+  &-button {
+    align-self: flex-end;
+    cursor: pointer;
+
+    svg {
+      fill: darken(#fff, 35%);
+      transition: .3s all;
+
+      &:hover {
+        fill: #000000;
+      }
+    }
+  }
+}
+
+.modal__content {
+  padding: 0 10px;
+  width: 100%;
+  height: 90%;
+  @include flex(column, space-between, flex-start);
+
+  &-photo {
+    position: relative;
+    align-self: center;
+    max-height: 90%;
+    max-width: 80%;
+  }
+
+  &-location {
+    padding: 5px 0;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+}
+
+.author__info {
+  padding: 5px 0;
+  @include flex(row, space-between, center);
+
+  &-photo {
+    border-radius: 50%;
+  }
+
+  &-name {
+    margin-left: 5px;
+    font-size: 16px;
+  }
+}
+
+// MEDIA
+
+@media screen and (max-width: 1110px) {
+  .modal__container {
+    height: 80vh
+  }
+}
+
+@media screen and (max-width: 935px) {
+  .modal__container {
+    height: 72vh;
+  }
+
+  .modal__content {
+    padding: 25px 10px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .modal__container {
+    height: 62vh;
+  }
+
+  .modal__content {
+    padding: 14px 10px;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .modal__container {
+    height: 52vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .modal__container {
+    height: 42vh;
+  }
+
+  .author__info {
+    display: none;
+  }
+
+  .modal__content-location {
+    display: none;
+  }
+
+  .modal__content {
+    padding: 25px 0 0 0;
+  }
+
+  .modal__content-photo {
+    max-width: 100%;
+  }
+}

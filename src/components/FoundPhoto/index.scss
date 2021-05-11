@@ -1,0 +1,68 @@
+.found {
+  margin-top: 24px;
+
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+}
+
+.found__item {
+  margin: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+
+    &:hover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 4px;
+      right: 0;
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(transparent));
+      background: linear-gradient(
+                      180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), linear-gradient(
+                      180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+    }
+
+    &-flex {
+      display: flex;
+      align-items: center;
+      margin-right: 12px;
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+
+      div {
+        margin-right: 12px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      p {
+        color: #ffffff;
+        font-size: 14px;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

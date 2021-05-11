@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.home {
+  position: relative;
+  margin-bottom: 48px;
+
+  &__content {
+    width: 100%;
+    height: 550px;
+
+    &-info {
+      position: absolute;
+      top: 30%;
+      left: 35%;
+      z-index: 2;
+
+      h3 {
+        font-family: 'Bebas Neue', cursive;
+        color: #ffffff;
+        font-size: 120px;
+        text-align: center;
+      }
+
+      p {
+        color: #ffffff;
+        font-size: 16px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content-item {
+    width: 100%;
+    height: 100%;
+
+    span {
+      color: #e0e0e0;
+      cursor: pointer;
+      transition: .3s all;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+
+    p {
+      position: absolute;
+      left: 7%;
+      bottom: 3%;
+      color: #fff;
+      z-index: 2;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(transparent));
+      background: linear-gradient(
+                      180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), linear-gradient(
+                      180deg, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+      z-index: 2;
+    }
+  }
+}
+
+.home__item {
+  margin: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+
+    &:hover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 4px;
+      right: 0;
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(transparent));
+      background: linear-gradient(
+                      180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), linear-gradient(
+                      180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+    }
+
+    &-flex {
+      display: flex;
+      align-items: center;
+      margin-right: 12px;
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+
+      div {
+        margin-right: 12px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      p {
+        color: #ffffff;
+        font-size: 14px;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// MEDIA
+
+@media screen and (max-width: 785px) {
+  .home__content-info {
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .home__content-info {
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .home__content-item {
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .home__content-info {
+    left: 23%;
+
+    h3 {
+      font-size: 65px;
+    }
+
+    p {
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .home__content-info {
+    left: 10%;
+
+    p {
+      text-align: center;
+    }
+  }
+}
