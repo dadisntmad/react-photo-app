@@ -1,27 +1,27 @@
-import { produce } from 'immer';
-import { Types } from '../actions/modal';
+import {produce} from 'immer';
+import {ModalActionType, ModalActionTypes, ModalState} from "../../types/modal";
 
-const initialState = {
+const initialState: ModalState = {
   photo: {},
   isLoading: false,
   showModal: false,
   photoId: '',
 };
 
-const modal = produce((draft, action) => {
+const modal = produce((draft, action: ModalActionType) => {
   switch (action.type) {
-    case Types.SET_PHOTO:
+    case ModalActionTypes.SET_PHOTO:
       draft.isLoading = false;
       draft.photo = action.payload;
       break;
-    case Types.SET_IS_LOADING:
+    case ModalActionTypes.SET_IS_LOADING:
       draft.isLoading = true;
       break;
-    case Types.SET_SHOW_MODAL:
+    case ModalActionTypes.SET_SHOW_MODAL:
       draft.showModal = true;
       draft.photoId = action.payload;
       break;
-    case Types.SET_CLOSE_MODAL:
+    case ModalActionTypes.SET_CLOSE_MODAL:
       draft.showModal = false;
       draft.photoId = '';
       draft.photo = {};

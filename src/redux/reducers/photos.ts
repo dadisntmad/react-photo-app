@@ -1,7 +1,7 @@
-import { produce } from 'immer';
-import { Types } from '../actions/photos';
+import {produce} from 'immer';
+import {PhotosActionType, PhotosActionTypes, PhotosState} from "../../types/photos";
 
-const initialState = {
+const initialState: PhotosState = {
   photos: [],
   randomPhoto: [],
   foundPhotos: [],
@@ -10,28 +10,28 @@ const initialState = {
   page: 1,
 };
 
-const photos = produce((draft, action) => {
+const photos = produce((draft, action: PhotosActionType) => {
   switch (action.type) {
-    case Types.SET_PHOTOS:
+    case PhotosActionTypes.SET_PHOTOS:
       draft.photos.push(...action.payload);
       break;
-    case Types.SET_RANDOM_PHOTO:
+    case PhotosActionTypes.SET_RANDOM_PHOTO:
       draft.randomPhoto = action.payload;
       break;
-    case Types.SET_FOUND_PHOTOS:
+    case PhotosActionTypes.SET_FOUND_PHOTOS:
       draft.isLoading = false;
       draft.foundPhotos = action.payload;
       break;
-    case Types.SET_QUERY:
+    case PhotosActionTypes.SET_QUERY:
       draft.query = action.payload;
       break;
-    case Types.SET_CLEAR:
+    case PhotosActionTypes.SET_CLEAR:
       draft.query = '';
       break;
-    case Types.SET_IS_LOADING:
+    case PhotosActionTypes.SET_IS_LOADING:
       draft.isLoading = true;
       break;
-    case Types.SET_PAGE:
+    case PhotosActionTypes.SET_PAGE:
       draft.page = action.payload;
       break;
     default:
