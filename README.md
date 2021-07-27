@@ -1,3 +1,3 @@
 # Live Demo
 
-https://dadisntmad.github.io/
+https://dadisntmad.github.io/react-photo-app/#/
