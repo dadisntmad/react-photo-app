@@ -1,5 +1,21 @@
+export type ModalPhotoTypes = {
+  user?: {
+    name?: string,
+    profile_image?: {
+      small: string,
+    },
+  },
+  urls?: {
+    regular: string,
+  },
+  alt_description?: string,
+  location?: {
+    title: string,
+  },
+}
+
 export type ModalState = {
-  photo: any,
+  photo: ModalPhotoTypes,
   isLoading: boolean,
   showModal: boolean,
   photoId: string
@@ -14,7 +30,7 @@ export enum ModalActionTypes {
 
 type setPhoto = {
   type: ModalActionTypes.SET_PHOTO,
-  payload: string[]
+  payload: ModalPhotoTypes
 }
 
 type setIsLoading = {

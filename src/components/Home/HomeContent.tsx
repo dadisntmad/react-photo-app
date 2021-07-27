@@ -1,23 +1,31 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Masonry from 'react-masonry-component';
-import { useDispatch } from 'react-redux';
-import { setShowModal } from '../../redux/actions/modal';
+import {useDispatch} from 'react-redux';
+import {setShowModal} from '../../redux/actions/modal';
 import Loader from '../Loader/Loader';
+import {PhotosType} from "../../types/photos";
 
-const HomeContent = ({ photos, isLoading, fetchMoreData }) => {
+type HomeContentProps = {
+  photos: PhotosType[],
+  isLoading: boolean,
+  fetchMoreData: (page: number) => void,
+  page: number
+}
+
+const HomeContent: React.FC<HomeContentProps> = ({photos, isLoading, fetchMoreData, page}) => {
   const dispatch = useDispatch();
 
   return (
     <InfiniteScroll
-      next={() => fetchMoreData()}
+      next={() => fetchMoreData(page)}
       hasMore={true}
       loader={null}
       dataLength={photos.length}
-      style={{ overflow: 'hidden' }}>
-      <Masonry options={{ isFitWidth: 'true' }} style={{ margin: '0 auto' }}>
+      style={{overflow: 'hidden'}}>
+      <Masonry options={{fitWidth: true}} style={{margin: '0 auto'}}>
         {isLoading ? (
-          <Loader />
+          <Loader/>
         ) : (
           photos &&
           photos.map((listPhotos) => (
@@ -25,7 +33,7 @@ const HomeContent = ({ photos, isLoading, fetchMoreData }) => {
               key={listPhotos.id}
               onClick={() => dispatch(setShowModal(listPhotos.id))}
               className="home__item">
-              <img src={listPhotos.urls.small} alt={listPhotos.alt_description} />
+              <img src={listPhotos.urls.small} alt={listPhotos.alt_description}/>
               <div className="home__item-info">
                 <div className="home__item-info-flex">
                   <div>

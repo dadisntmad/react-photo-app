@@ -4,7 +4,7 @@ import logo from '../../assets/logo.svg';
 import SearchBar from '../SearchBar/SearchBar';
 import './index.scss';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="container">

@@ -1,7 +1,32 @@
+export type RandomPhotoType = {
+  id: string,
+  alt_description: string,
+  urls: {
+    regular: string
+  },
+  user: {
+    name: string
+  },
+}
+
+export type PhotosType = {
+  id: string,
+  urls: {
+    small: string,
+  },
+  alt_description: string,
+  user: {
+    name: string,
+    profile_image: {
+      small: string,
+    }
+  }
+}
+
 export type PhotosState = {
-  photos: string[],
-  randomPhoto: string[],
-  foundPhotos: string[],
+  photos: PhotosType[],
+  randomPhoto: RandomPhotoType[],
+  foundPhotos: PhotosType[],
   query: string,
   isLoading: boolean,
   page: number
@@ -19,7 +44,7 @@ export enum PhotosActionTypes {
 
 type setPhotos = {
   type: PhotosActionTypes.SET_PHOTOS,
-  payload: string[]
+  payload: PhotosType[]
 }
 
 type setQuery = {
@@ -37,12 +62,12 @@ type setIsLoading = {
 
 type setRandomPhoto = {
   type: PhotosActionTypes.SET_RANDOM_PHOTO,
-  payload: string[]
+  payload: RandomPhotoType[]
 }
 
 type setFoundPhotos = {
   type: PhotosActionTypes.SET_FOUND_PHOTOS,
-  payload: string[]
+  payload: PhotosType[]
 }
 
 type setPage = {
@@ -50,4 +75,11 @@ type setPage = {
   payload: number
 }
 
-export type PhotosActionType = setPhotos | setQuery | setClear | setIsLoading | setRandomPhoto | setFoundPhotos | setPage;
+export type PhotosActionType =
+  setPhotos
+  | setQuery
+  | setClear
+  | setIsLoading
+  | setRandomPhoto
+  | setFoundPhotos
+  | setPage;
