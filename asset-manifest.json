@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-photo-app/static/css/main.92f16ced.chunk.css",
+    "main.js": "/react-photo-app/static/js/main.5ce25625.chunk.js",
+    "main.js.map": "/react-photo-app/static/js/main.5ce25625.chunk.js.map",
+    "runtime-main.js": "/react-photo-app/static/js/runtime-main.0235dc9d.js",
+    "runtime-main.js.map": "/react-photo-app/static/js/runtime-main.0235dc9d.js.map",
+    "static/js/2.e48b135a.chunk.js": "/react-photo-app/static/js/2.e48b135a.chunk.js",
+    "static/js/2.e48b135a.chunk.js.map": "/react-photo-app/static/js/2.e48b135a.chunk.js.map",
+    "index.html": "/react-photo-app/index.html",
+    "static/css/main.92f16ced.chunk.css.map": "/react-photo-app/static/css/main.92f16ced.chunk.css.map",
+    "static/js/2.e48b135a.chunk.js.LICENSE.txt": "/react-photo-app/static/js/2.e48b135a.chunk.js.LICENSE.txt",
+    "static/media/loading.196735b1.gif": "/react-photo-app/static/media/loading.196735b1.gif",
+    "static/media/location.72e55ebe.svg": "/react-photo-app/static/media/location.72e55ebe.svg",
+    "static/media/logo.4d398d16.svg": "/react-photo-app/static/media/logo.4d398d16.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0235dc9d.js",
+    "static/js/2.e48b135a.chunk.js",
+    "static/css/main.92f16ced.chunk.css",
+    "static/js/main.5ce25625.chunk.js"
+  ]
+}
