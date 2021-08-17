@@ -1,6 +1,13 @@
 import instance from '../../API/api';
-import {ModalActionType, ModalActionTypes, ModalPhotoTypes} from "../../types/modal";
-import {Dispatch} from "redux";
+import { ModalActionType, ModalPhotoTypes } from '../../types/modal';
+import { Dispatch } from 'redux';
+
+export enum ModalActionTypes {
+  SET_PHOTO = 'MODAL@SET_PHOTO',
+  SET_IS_LOADING = 'MODAL@SET_IS_LOADING',
+  SET_SHOW_MODAL = 'MODAL@SET_SHOW_MODAL',
+  SET_CLOSE_MODAL = 'MODAL@SET_CLOSE_MODAL',
+}
 
 export const setPhoto = (photo: ModalPhotoTypes): ModalActionType => ({
   type: ModalActionTypes.SET_PHOTO,

@@ -1,6 +1,16 @@
 import instance from '../../API/api';
-import {PhotosActionType, PhotosActionTypes, PhotosType, RandomPhotoType} from "../../types/photos";
-import {Dispatch} from "redux";
+import { PhotosActionType, PhotosType, RandomPhotoType } from '../../types/photos';
+import { Dispatch } from 'redux';
+
+export enum PhotosActionTypes {
+  SET_PHOTOS = 'PHOTOS@SET_PHOTOS',
+  SET_QUERY = 'PHOTOS@SET_QUERY',
+  SET_CLEAR = 'PHOTOS@SET_CLEAR',
+  SET_IS_LOADING = 'PHOTOS@SET_IS_LOADING',
+  SET_RANDOM_PHOTO = 'PHOTOS@SET_RANDOM_PHOTO',
+  SET_FOUND_PHOTOS = 'PHOTOS@SET_FOUND_PHOTOS',
+  SET_PAGE = 'PHOTOS@SET_PAGE',
+}
 
 export const setPhotos = (photos: PhotosType[]): PhotosActionType => ({
   type: PhotosActionTypes.SET_PHOTOS,
@@ -38,9 +48,9 @@ export const setPage = (page: number): PhotosActionType => ({
 export const fetchRandomPhoto = () => async (dispatch: Dispatch<PhotosActionType>) => {
   try {
     const response = await instance.get(`/photos/random/?count=1&orientation=landscape`);
-    dispatch(setRandomPhoto(response.data))
+    dispatch(setRandomPhoto(response.data));
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
 };
 
@@ -48,20 +58,20 @@ export const fetchPhotos = (page: number) => async (dispatch: Dispatch<PhotosAct
   try {
     dispatch(setPage(page));
     const response = await instance.get(`/photos?page=${page}`);
-    dispatch(setPhotos(response.data))
+    dispatch(setPhotos(response.data));
     dispatch(setPage(page + 1));
   } catch (e) {
     console.log(e);
   }
 };
 
-export const fetchPhotosSearch = (query: string) => async (dispatch: Dispatch<PhotosActionType>) => {
-  try {
-    dispatch(setIsLoading());
-    const response = await instance
-      .get(`/search/photos?per_page=30&query=${query}`)
-    dispatch(setFoundPhotos(response.data.results))
-  } catch (e) {
-    console.log(e);
-  }
-};
+export const fetchPhotosSearch =
+  (query: string) => async (dispatch: Dispatch<PhotosActionType>) => {
+    try {
+      dispatch(setIsLoading());
+      const response = await instance.get(`/search/photos?per_page=30&query=${query}`);
+      dispatch(setFoundPhotos(response.data.results));
+    } catch (e) {
+      console.log(e);
+    }
+  };

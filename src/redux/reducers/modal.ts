@@ -1,5 +1,6 @@
-import {produce} from 'immer';
-import {ModalActionType, ModalActionTypes, ModalState} from "../../types/modal";
+import { produce } from 'immer';
+import { ModalActionType, ModalState } from '../../types/modal';
+import { ModalActionTypes } from '../actions/modal';
 
 const initialState: ModalState = {
   photo: {},

@@ -1,5 +1,6 @@
-import {produce} from 'immer';
-import {PhotosActionType, PhotosActionTypes, PhotosState} from "../../types/photos";
+import { produce } from 'immer';
+import { PhotosActionType, PhotosState } from '../../types/photos';
+import { PhotosActionTypes } from '../actions/photos';
 
 const initialState: PhotosState = {
   photos: [],
